@@ -3,7 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named longestString that takes in an array of strings and returns the index position of the longest string. 
+Write a function named longestString that takes in an array of strings and returns the index position of the longest string.
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
@@ -26,7 +26,7 @@ const longestString = (arr) => {
   }
   return longestIndex;
 };
-  
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -84,7 +84,7 @@ const standardizePhoneNumbers = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
+CHALLENGE 5
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
@@ -105,7 +105,7 @@ const onlyOddChars = (str) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
+CHALLENGE 6
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
@@ -133,6 +133,13 @@ Write a function named findAnything that takes in an array of strings, along wit
 
 const findAnything = (arr, target) => {
   // Solution code here...
+  let finalArray =[];
+  for (let i =0;i < arr.length ; i++){
+    if (arr[i].includes(target)){
+      finalArray.push (arr[i]);
+    }
+  }
+  return finalArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,6 +150,17 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  let finalArray = [];
+  for (let i =0;i< arr.length;i++){
+    if (arr[i].includes (target)){
+      finalArray.push (arr[i]);
+    }
+  }
+  if (finalArray.length === arr.length){
+    return true;
+  }else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -159,6 +177,16 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  let arr2 = [];
+  arr.filter (item=>{
+    let filtered = item.filter (itm=>{
+      if (!itm.includes ('Brook')){
+        return itm;
+      }
+    });
+    arr2.push (filtered);
+  });
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -186,6 +214,31 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 const sortByDay = (arr) => {
   // Solution code here...
+  let arr1 =[];
+  let arr2 =[];
+  let arr3 =[];
+  let arr4 =[];
+  let arr5 =[];
+  let arr6 =[];
+  let arr7 =[];
+  for (let i = 0;i<arr.length;i++){
+    if (arr[i].includes ('Monday')){
+      arr1.push (arr[i]);
+    } if (arr[i].includes ('Tuesday')){
+      arr2.push (arr[i]);
+    } if ( arr[i].includes ('Wednesday')){
+      arr3.push (arr[i]);
+    } if ( arr[i].includes ('Thursday')){
+      arr4.push (arr[i]);
+    } if (arr[i].includes ('Friday')){
+      arr5.push (arr[i]);
+    } if (arr[i].includes ('Saturday')){
+      arr6.push (arr[i]);
+    } if (arr[i].includes ('Sunday')){
+      arr7.push (arr[i]);
+    }
+  }
+  return [arr1,arr2,arr3,arr4,arr5,arr6,arr7];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -198,6 +251,12 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 
 const characterByIndex = (arr) => {
   // Solution code here...
+  let indexArray = [];
+  for (let i=0;i<arr.length;i++){
+    let str = arr[i].split('');
+    indexArray.push (str[i]);
+  }
+  return indexArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -213,9 +272,9 @@ Run your tests from the console: jest challenges-13.test.js
 
 describe('Testing challenge 1', () => {
   test('It should return an index position of the longest string', () => {
-    const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
+    const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki'];
     const strArray2 = [];
-    const strArray3= ['Ginger']
+    const strArray3= ['Ginger'];
 
     expect(longestString(strArray1)).toStrictEqual(2);
     expect(longestString(strArray2)).toStrictEqual(-1);
@@ -272,7 +331,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should find all the strings that contain a given string', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -281,7 +340,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
@@ -291,7 +350,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should remove Brook from all courses', () => {
     const roster = [
       ['Michelle', 'Allie', 'Brook TESTING'],
@@ -309,7 +368,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort events by the day on which they happen', () => {
     const events = ['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7', 'in the club on a Tuesday', 'Thursday Night Code', 'Saturday Night Fever'];
     const sortedEvents = sortByDay(events);
@@ -333,7 +392,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the ith character of the ith string', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
