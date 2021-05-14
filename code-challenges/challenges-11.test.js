@@ -2,208 +2,228 @@
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
-
-Write a function named transformToLis that, given an object, returns an array of the key value pairs as html list items.
-
-For example: 
-{
-  name: 'bob',
-  age: 32
-}
-
-Becomes: 
-[
-<li>name: bob</li>,
-<li>age: 32</li>
-]
+Write a function that iterates over an array of people objects
+and creates a new list of each person's full name using the array method 'map'.
+Each object will have the shape {firstName:string, lastName:string}
+E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
+should convert to ["Jane Doe", "James Bond"]
+Note the space in between first and last names.
+You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
-
-function transformToLis(obj){
+const toLastNames = people => {
   // Solution code here...
-}
+  let namesArray = [];
+  people.map (item=>{
+    let s1 = item.firstName + ' ' + item.lastName;
+    namesArray.push(s1);
+  });
+  return namesArray;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
-
-Write a function named count that, given an integer and an array of arrays, uses either filter, map, or reduce to count the amount of times the integer is present in the array of arrays.
-
-Note: You might need to use the same method more than once.
-
-For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
+Write a function named validatePin that uses a regular expression pattern to validate a PIN.
+If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const count = (target, input) => {
+const validatePin = (pin) => {
   // Solution code here...
+  let regex = /^[0-9]{4}$/;
+  return regex.test (pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
-
-Write a function that, given an array of integer arrays as input, calculates the total sum of all the elements in the array.
-
-You may want to use filter, map, or reduce for this problem, but are not required to. You may need to use the same method more than once.
-
-For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
+Write a function named validateWord that uses a regular expression pattern to validate that a word is between 5 and 10 characters long.
+If the word is between 5 and 10 characters long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const totalSum = (input) => {
+const validateWord = (word) => {
   // Solution code here...
+  let regex = /^[a-zA-Z]{5,10}$/g;
+  return regex.test (word);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
-
-Write a function named divisibleByFiveTwoToThePower that accepts an array of arrays as input.
-
-This function should first remove any elements that are not numbers or are not divisible by five.
-
-This function should then raise 2 to the power of the resulting numbers, returning an array of arrays.
-
-For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
+Write a function named hasNumber that uses a regular expression pattern to determine if a string has one 
+or more letter followed by one or more digit.
+If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const divisibleByFiveTwoToThePower = (input) => {
+const hasNumber = (string) => {
   // Solution code here...
+  let regex = /([a-zA-Z]{1,})([0-9]{1,})/g;
+  return regex.test (string);
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
-
-Write a function named findMaleAndFemale that, given the Star Wars data, below,
-returns the names of the characters whose gender is either male or female.
-
-The names should be combined into a single string with each character name separated by "and".
-
-For example, "C-3PO and Luke Skywalker".
+CHALLENGE 5
+Write a function named validateEmail that takes in an email address and validates it based
+on several rules:
+  - one word, or two words separated by a period, before the @ symbol
+  - can contain numbers
+  - can have any of the following top-level domains: .net, .com, or .org
+  - no other special characters
+  - no subdomains, ports, etc: must be of the form name@place.com, not name@sub.place.com:3000
+Return either true or false.
+Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
 
-let starWarsData = [{
-  name: 'Luke Skywalker',
-  height: '172',
-  mass: '77',
-  hair_color: 'blond',
-  skin_color: 'fair',
-  eye_color: 'blue',
-  birth_year: '19BBY',
-  gender: 'male',
-},
-{
-  name: 'C-3PO',
-  height: '167',
-  mass: '75',
-  hair_color: 'n/a',
-  skin_color: 'gold',
-  eye_color: 'yellow',
-  birth_year: '112BBY',
-  gender: 'n/a'
-},
-{
-  name: 'R2-D2',
-  height: '96',
-  mass: '32',
-  hair_color: 'n/a',
-  skin_color: 'white, blue',
-  eye_color: 'red',
-  birth_year: '33BBY',
-  gender: 'n/a'
-},
-{
-  name: 'Darth Vader',
-  height: '202',
-  mass: '136',
-  hair_color: 'none',
-  skin_color: 'white',
-  eye_color: 'yellow',
-  birth_year: '41.9BBY',
-  gender: 'male'
-},
-{
-  name: 'Leia Organa',
-  height: '150',
-  mass: '49',
-  hair_color: 'brown',
-  skin_color: 'light',
-  eye_color: 'brown',
-  birth_year: '19BBY',
-  gender: 'female'
-}];
-
-let findMaleAndFemale = (data) => {
+const validateEmail = (email) => {
   // Solution code here...
+  let regex = /^[a-zA-Z0-9]+(.[a-zA-Z0-9]+)@([a-zA-Z])+(.net|.com|.org)$/i;
+  return regex.test (email);
+};
+
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 6
+Write a function named validatePhoneNumber that accepts a phone number and determines if it is valid.
+Acceptable formats include:
+ - (555) 555-5555
+ - (555)555 5555
+ - 555 555-5555
+ - 555-5555555
+ - 555-555 5555
+ - 555-555-5555
+ - 555 555 5555
+ - 555555-5555
+ - 5555555555
+Your function should include a single regular expression pattern that matches any of these formats.
+Return either true or false.
+------------------------------------------------------------------------------------------------ */
+
+const validatePhoneNumber = (phoneNumber) => {
+  // Solution code here...
+  let regex = /^((\(\d{3}\))|\d{3})(\s|-)?\d{3}(\s|-)?\d{4}$/;
+  return regex.test (phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
-
-Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the character who is the shortest in height.
+CHALLENGE 7 - Stretch Goal
+Write a function named findTagNames that iterates over an array of HTML strings and uses a regular expression pattern to return the closing tags.
+For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>']) returns ['/h1', '/p'].
+findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>']) returns ['/h1', '/div', '/p'].
 ------------------------------------------------------------------------------------------------ */
 
-let findShortest = (data) => {
+const findTagNames = elements => {
   // Solution code here...
 };
-
 /* ------------------------------------------------------------------------------------------------
 TESTS
-
 All the code below will verify that your functions are working to solve the challenges.
-
 DO NOT CHANGE any of the below code.
-
-Run your tests from the console: jest challenges-10.test.js
-
+Run your tests from the console: jest solutions-11.test.js
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
-  test('It should return a list of key value pairs inside of li tags', () => {
-    expect(transformToLis({name: 'bob', age: 32})[0]).toStrictEqual(`<li>name: bob</li>`);
-    expect(transformToLis({name: 'bob', age: 32})[1]).toStrictEqual(`<li>age: 32</li>`);
-    expect(transformToLis({})).toStrictEqual([]);
+describe('Testing challenge 1', () => {
+  test('It should convert object to full name string', () => {
+
+    const people = [{ firstName: 'Jane', lastName: 'Doe' }, { firstName: 'James', lastName: 'Bond' }];
+
+    expect(toLastNames(people)).toStrictEqual(['Jane Doe', 'James Bond']);
+
   });
 });
 
-xdescribe('Testing challenge 2', () => {
-  test('It should return the number of times the input is in the nested arrays', () => {
-    expect(count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(4);
-    expect(count(3, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(2);
-    expect(count(12, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(0);
-  });
-  test('It should work on empty arrays', () => {
-    expect(count(5, [[1, 3, 5, 7, 9], [], [5, 5, 5], [1, 2, 3], []])).toStrictEqual(4);
-    expect(count(5, [])).toStrictEqual(0);
-  });
-});
-
-xdescribe('Testing challenge 3', () => {
-  test('It should add all the numbers in the arrays', () => {
-    const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
-
-    expect(totalSum(nums)).toStrictEqual(66);
+describe('Testing challenge 2', () => {
+  test('It should validate a PIN of exactly four digits', () => {
+    expect(validatePin(1234)).toBeTruthy();
+    expect(validatePin(123)).toBeFalsy();
+    expect(validatePin(12345)).toBeFalsy();
+    expect(validatePin('abcd')).toBeFalsy();
+    expect(validatePin('7890')).toBeTruthy();
+    expect(validatePin('0789')).toBeTruthy();
+    expect(validatePin(789)).toBeFalsy();
+    expect(validatePin('0000')).toBeTruthy();
   });
 });
 
-xdescribe('Testing challenge 4', () => {
-  test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
-    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
-  });
-
-  test('It should return an empty array if none of the numbers are divisible by five', () => {
-    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
-  });
-
-  test('It should return an empty array if the values are not numbers', () => {
-    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
+describe('Testing challenge 3', () => {
+  test('It should validate a word between 5 and 10 characters', () => {
+    expect(validateWord('Hello')).toBeTruthy();
+    expect(validateWord('Bob')).toBeFalsy();
+    expect(validateWord(12345)).toBeFalsy();
+    expect(validateWord('abcdefghijkl')).toBeFalsy();
+    expect(validateWord('cookie')).toBeTruthy();
+    expect(validateWord(789)).toBeFalsy();
+    expect(validateWord('Code301')).toBeFalsy();
   });
 });
 
-xdescribe('Testing challenge 5', () => {
-  test('It should return only characters that are male or female', () => {
-    expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
-    expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
+describe('Testing challenge 4', () => {
+  test('It should return true if a string has one or more word characters followed by one or more digits', () => {
+    expect(hasNumber('Hell0')).toBeTruthy();
+    expect(hasNumber('Bob')).toBeFalsy();
+    expect(hasNumber(12345)).toBeFalsy();
+    expect(hasNumber('abcdefghijkl')).toBeFalsy();
+    expect(hasNumber('c00kie')).toBeTruthy();
+    expect(hasNumber(789)).toBeFalsy();
+    expect(hasNumber('Code301')).toBeTruthy();
+    expect(hasNumber('99Code')).toBeFalsy();
   });
 });
 
-xdescribe('Testing challenge 6', () => {
-  test('It should return the name of the shortest character', () => {
-    expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
+describe('Testing challenge 5', () => {
+  test('It should match a basic email', () => {
+    expect(validateEmail('joe@codefellows.com')).toBeTruthy();
+  });
+
+  test('It should match if the email contains a period', () => {
+    expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
+  });
+
+  test('It should match if the email contains other top-level domains', () => {
+    expect(validateEmail('joe@codefellows.org')).toBeTruthy();
+  });
+
+  test('It should match if the email contains a period and other top-level domains', () => {
+    expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
+  });
+
+  test('It should fail things that aren\'t email addresses', () => {
+    expect(validateEmail('justastring')).toBeFalsy();
+    expect(validateEmail('missing@adomain')).toBeFalsy();
+    expect(validateEmail('@noname.com')).toBeFalsy();
+    expect(validateEmail('.@noname.com')).toBeFalsy();
+    expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
+    expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
+    expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
+    expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
+    expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
+  });
+});
+
+describe('Testing challenge 6', () => {
+  test('It should match the acceptable phone number formats', () => {
+    expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
+    expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
+    expect(validatePhoneNumber('555-555-5555')).toBeTruthy();
+    expect(validatePhoneNumber('555 5555555')).toBeTruthy();
+    expect(validatePhoneNumber('5555555555')).toBeTruthy();
+    expect(validatePhoneNumber('234 567 8910')).toBeTruthy();
+  });
+  test('It should not match unacceptable phone number formats', () => {
+    expect(validatePhoneNumber('abcdefghij')).toBeFalsy();
+    expect(validatePhoneNumber('222 222 2222 ext. 2222')).toBeFalsy();
+    expect(validatePhoneNumber('(222 222-2222')).toBeFalsy();
+    expect(validatePhoneNumber('222 222-2222-')).toBeFalsy();
+    expect(validatePhoneNumber('(222 222- 2222')).toBeFalsy();
+    expect(validatePhoneNumber('(222 222 -2222')).toBeFalsy();
+    expect(validatePhoneNumber('523 555--5555')).toBeFalsy();
+    expect(validatePhoneNumber('55555555555')).toBeFalsy();
+    expect(validatePhoneNumber('55555555555')).toBeFalsy();
+    expect(validatePhoneNumber('55555555555')).toBeFalsy();
+    expect(validatePhoneNumber('55_55_5555')).toBeFalsy();
+  });
+});
+
+xdescribe('Testing challenge 7', () => {
+  test('It should return the closing tags', () => {
+    expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/p']);
+  });
+  test('It should work if there are multiple closing tags in a single string', () => {
+    expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/div', '/p']);
   });
 });
