@@ -24,7 +24,7 @@ CHALLENGE 2
 
 Write a function named findMax that takes in a matrix of positive numbers and returns the number with the highest value.
 
-For example: 
+For example:
 [
   [1, 3, 4, 5],
   [4, 5, 6],
@@ -52,7 +52,7 @@ CHALLENGE 3
 
 Write a function named totalSum that takes in a matrix of numbers and returns the totalSum of all the numbers.
 
-For example: 
+For example:
 [
   [1, 3, 4, 5],
   [4, 5, 1],
@@ -180,6 +180,17 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  for (let i=0;i< board.length;i++){
+    for (let t = 0;t< board[i].length ;t++){
+      if (i === row && t === col){
+        if (board[i][t] === '#'){
+          return 'hit';
+        }else if (board[i][t] === ' '){
+          return 'miss';
+        }
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -192,6 +203,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  let m = 1;
+  for (let i =0;i< numbers.length;i++){
+    numbers[i].map(item=>{
+      m = m * item;
+    });
+  }
+  return m;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -212,6 +230,16 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  let s = 0;
+  let ind = 0;
+  for (let i=0;i<weather.length;i++){
+    weather[i].map (item=>{
+      s = s +item;
+      ind++;
+    });
+  }
+  let a = s/ind;
+  return a;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -233,6 +261,26 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
+  let tempArray = [];
+  for (let i=0;i< weather.length ;i++){
+    let temp = 0;
+
+    weather[i].map(item=>{
+      temp = temp + item;
+
+    });
+    tempArray.push(temp/7);
+  }
+  tempArray.sort ((a,b)=>{
+    if (a < b ){
+      return -1;
+    }else if (a > b){
+      return 1;
+    }else if (a === b ){
+      return 0;
+    }
+  });
+  return tempArray[0];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -249,6 +297,37 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
+  let rows = str.split('\n');
+  let row1 = rows[0].split(',');
+  let row2 = rows[1].split(',');
+  let row3 = rows[2].split(',');
+  let rowsFinal1 = row1.map (item=>{
+    return Math.floor (item);
+  });
+  let rowsFinal2 = row2.map (item=>{
+    return Math.floor (item);
+  });
+  let rowsFinal3 = row3.map (item=>{
+    return Math.floor (item);
+  });
+  let sum1 = 0;
+  let sum2 = 0;
+  let sum3 = 0;
+  let sums =[];
+  rowsFinal1.map (item=>{
+    sum1 = sum1 +item;
+  });
+  sums.push (sum1);
+  rowsFinal2.map (item=>{
+    sum2 = sum2 +item;
+  });
+  sums.push (sum2);
+  rowsFinal3.map (item=>{
+    sum3 = sum3 +item;
+  });
+  sums.push (sum3);
+  console.log ('sums',sums);
+  return sums;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -317,7 +396,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
@@ -336,7 +415,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
@@ -349,20 +428,20 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should calculate and return the average temperature of the data set', () => {
     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should return the lowest weekly average temperature within the data set', () => {
     expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
     expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the total count for each row', () => {
     let result = excel('1,1,1\n4,4,4\n9,9,9');
     expect(result.length).toStrictEqual(3);
