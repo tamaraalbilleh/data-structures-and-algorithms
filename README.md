@@ -15,4 +15,8 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.<br>
 
 ### table of content
-[array-reverse 401 code challenges => 01](./javascript-401d9/challenges/01/README.md)
+
+| code challenge  | README link  | 
+|---|---|
+| array-reverse  | [Link](./javascript-401d9/challenges/01/README.md)  |  
+| array-shift    | [Link](./javascript-401d9/challenges/02/README.md)  |
