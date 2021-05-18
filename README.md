@@ -20,3 +20,4 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 |---|---|
 | array-reverse  | [Link](./javascript-401d9/challenges/01/README.md)  |  
 | array-shift    | [Link](./javascript-401d9/challenges/02/README.md)  |
+| array-binary-search    | [Link](./javascript-401d9/challenges/03/README.md)  |
