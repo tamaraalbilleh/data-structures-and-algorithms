@@ -121,8 +121,22 @@ describe ('Linked Lists' , ()=>{
     linkedList.insert();
 
     //assert
-    // expect(linkedList.head.next).toBeNull();
     expect(linkedList.head.value).toThrowError;
+
+  });
+
+});
+
+describe ('Node' , ()=>{
+
+  it ('should create a new node',()=>{
+    //arrange
+    let value = 1;
+    //act
+    let newNode = new Nodes (value);
+
+    //assert
+    expect(newNode.value).toBe (1);
 
   });
 
