@@ -1,7 +1,7 @@
 # Singly Linked Lists
 a function that creates a new linked list and adds nodes in to it's head , checks if a certain value exists in the list and returns a string representing the value of all nodes in the linked list.
 ## Whiteboard Process
-![white1](../assets/cc5.PNG)
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc5.png?raw=true)
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
 
 ## Challenge
