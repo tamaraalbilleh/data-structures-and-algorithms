@@ -6,7 +6,7 @@ a function that creates a new linked list and adds nodes in to it's head , check
 ![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc5.png?raw=true)
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
 ### code challenge 06 :
-![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc5.png?raw=true)
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc6.png?raw=true)
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
 
 
