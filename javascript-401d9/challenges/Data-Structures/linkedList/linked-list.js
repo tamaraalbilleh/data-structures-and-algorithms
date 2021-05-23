@@ -102,6 +102,73 @@ class LinkedList {
 
   }
 
+  append (value) {
+
+    try {
+      let newNode = new Node (value);
+      let current = this.head;
+      while (current.next){
+        current=current.next;
+      }
+      newNode.next = current.next;
+      current.next = newNode;
+
+    } catch (error) {
+      console.error ('Error in implementing the append method =>' , error);
+    }
+
+  }
+
+  insertBefore(value, newVal){
+    try {
+      let current = this.head;
+      let newNode = new Node (newVal);
+      if (this.head.value === value){
+        newNode.next = this.head;
+        this.head = newNode;
+      }else {
+        while (current){ // current is pointing on a node not a null
+          if (current.next.value === value){
+            newNode.next = current.next;
+            current.next = newNode;
+            return;
+          }else {
+            current = current.next;
+          }
+        }
+        // throw new Error ('Error in implementing the insertBefore method'); // the exception
+
+      }
+    } catch (error) {
+      console.error ('Error in implementing the insertBefore method'); // the exception
+      // throw new Error ('Error in implementing the insertBefore method'); // the exception
+
+    }
+  }
+
+  insertAfter(value, newVal){
+    try {
+      let newNode = new Node (newVal);
+      let current = this.head;
+      while (current){
+        if (current.value === value){
+          newNode.next = current.next;
+          current.next = newNode;
+          return;
+        }else {
+          current = current.next;
+        }
+      }
+      // throw new Error ('Error in implementing the insertAfter method'); // the exception
+
+    } catch (error) {
+      console.error ('Error in implementing the insertAfter method'); // the exception
+      // console.error ('Error in implementing the insertAfter method'); // the exception
+
+
+    }
+  }
+
 }
 
 module.exports = LinkedList;
