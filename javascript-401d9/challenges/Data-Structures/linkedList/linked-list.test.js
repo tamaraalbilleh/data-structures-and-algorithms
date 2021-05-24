@@ -341,3 +341,43 @@ describe ('Linked Lists' , ()=>{
   });
 
 });
+
+describe ('Linked Lists' , ()=>{
+
+  it ('should find the value of the nth node backwards using kthFromEnd',()=>{
+
+    //arrange
+    let linkedList = new LinkedList ();
+    let linkedList2 = new LinkedList ();
+    linkedList.insert (2);
+    linkedList.insert (8);
+    linkedList.insert (3);
+    linkedList.insert (1);
+    linkedList2.insert (1);
+
+    // [1] -> [3] -> [8] -> [2]
+    //act
+    let val1 = linkedList.kthFromEnd(0); //“Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+    let val2 = linkedList.kthFromEnd(1); //“Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+    let val3 = linkedList.kthFromEnd(4); // Where k and the length of the list are the same
+    let val4 = linkedList.kthFromEnd(6); // Where k is greater than the length of the linked list
+    let val5 = linkedList.kthFromEnd(-2);// Where k is not a positive integer
+    let val6 = linkedList2.kthFromEnd(0);// Where the linked list is of a size 1
+    let val7 = linkedList2.kthFromEnd(1);// Where the linked list is of a size 1
+
+    //assert
+    expect (val1).toBe(2);
+    expect (val2).toBe(8);
+    expect (val3).toThrowError;
+    expect (val4).toThrowError;
+    expect (val5).toThrowError;
+    expect (val6).toBe(1);
+    expect (val7).toThrowError;
+
+
+
+
+  });
+
+});
+

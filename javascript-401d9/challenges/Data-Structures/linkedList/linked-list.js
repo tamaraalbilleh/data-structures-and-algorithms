@@ -3,6 +3,7 @@ const Node = require ('./node.js');
 class LinkedList {
   constructor (){
     this.head = null;
+    this.length = 0;
   }
 
   //   Define a method called insert which takes
@@ -24,6 +25,7 @@ class LinkedList {
       }else {
         newNodePointer.next = this.head; // get the new pointer and make it th head pointer;
         this.head = newNodePointer; // take the head and make it the next pointer
+        this.length = this.length +1;
       }
 
     } catch (error) {
@@ -112,6 +114,7 @@ class LinkedList {
       }
       newNode.next = current.next;
       current.next = newNode;
+      this.length = this.length +1;
 
     } catch (error) {
       console.error ('Error in implementing the append method =>' , error);
@@ -126,11 +129,14 @@ class LinkedList {
       if (this.head.value === value){
         newNode.next = this.head;
         this.head = newNode;
+        this.length =this.length +1;
+
       }else {
         while (current){ // current is pointing on a node not a null
           if (current.next.value === value){
             newNode.next = current.next;
             current.next = newNode;
+            this.length =this.length +1;
             return;
           }else {
             current = current.next;
@@ -154,6 +160,7 @@ class LinkedList {
         if (current.value === value){
           newNode.next = current.next;
           current.next = newNode;
+          this.length =this.length+1;
           return;
         }else {
           current = current.next;
@@ -168,7 +175,24 @@ class LinkedList {
 
     }
   }
+  kthFromEnd(k) {
+    try {
+      let current = this.head;
+      let position =this.length;
+      while(current){
+        if( position === k){
+          return current.value;
+        }
+        else{
+          current = current.next;
+          position = position -1;
+        }
+      }
 
+    } catch (error) {
+      throw new Error ('Error in implementing the kthFromEnd method', error);
+    }
+  }
 }
 
 module.exports = LinkedList;

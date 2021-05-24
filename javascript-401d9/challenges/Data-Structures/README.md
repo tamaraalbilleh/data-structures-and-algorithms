@@ -1,5 +1,5 @@
 # Singly Linked Lists
-a function that creates a new linked list and adds nodes in to it's head , checks if a certain value exists in the list and returns a string representing the value of all nodes in the linked list , adds a node to the end of the list , adds nodes before a certain value provided or after a certain value.
+a function that creates a new linked list and adds nodes in to it's head , checks if a certain value exists in the list and returns a string representing the value of all nodes in the linked list , adds a node to the end of the list , adds nodes before a certain value provided or after a certain value, finds a value of a backwards index.
 
 ## Whiteboard Process
 ### code challenge 05 : 
@@ -7,6 +7,9 @@ a function that creates a new linked list and adds nodes in to it's head , check
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
 ### code challenge 06 :
 ![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc6.png?raw=true)
+for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
+### code challenge 07 :
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc7.png?raw=true)
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
 
 
@@ -21,7 +24,7 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
     * append(value) which adds a new node with the given value to the end of the
     * insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
     * insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
-
+* Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 ## Approach & Efficiency
 
 ### insert (value) :
@@ -82,6 +85,16 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
 * time  :O( n )
 * space :O ( 1 )
 ***
+### kthFromEnd (k) :
+1. create a pointer to the head node
+2. define the wanted position to be the length of the list as a start
+3. loop through the nodes as long as the pointer current refers to an actual node until position is equal to the input value every time decreasing the position by one
+4. return the value of the current node 
+6. if the provided value is less/ then the length or negative it throws an exception error
+### big O
+* time  :O( n )
+* space :O ( 1 )
+***
 <br>
 
 ## API
@@ -91,3 +104,4 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
 * append: Takes in a value of any type and add it to the tail of the linked list.
 * insertBefore: takes in two values and add a new node before the other in the linked list.
 * insertAfter: takes in two values and add a new node after the other in the linked list.
+*  kthFromEnd: takes in an integer value and returns the value of the node that has this index backwards 
