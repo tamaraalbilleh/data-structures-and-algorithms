@@ -1,5 +1,7 @@
 let Nodes = require('./node.js');
-let LinkedList = require('./linked-list.js');
+let LinkedList  = require('./linked-list.js');
+let zipLists = require('./ll-zip.js');
+
 const { expect } = require('@jest/globals');
 
 
@@ -381,3 +383,50 @@ describe ('Linked Lists' , ()=>{
 
 });
 
+describe ('Linked Lists' , ()=>{
+
+  it ('should zip 2 linked lists into one if the second is longer than the first',()=>{
+
+    //arrange
+    let list1 = new LinkedList ();
+    let list2 = new LinkedList ();
+    list1.insert (1);
+    list1.insert (2);
+    // head -> 2 -> 1 -> null
+    list2.insert ('a');
+    list2.insert ('b');
+    list2.insert ('c');
+    // head -> c -> b -> a -> null
+    // { 2 } -> { c } -> { 1 } -> { b } -> { a } -> NULL
+    //act
+    let result = zipLists (list1 , list2);
+    //assert
+    expect (result.head.value).toBe (2);
+    expect (result.head.next.value).toBe ('c');
+    expect (result.head.next.next.value).toBe (1);
+    expect (result.head.next.next.next.value).toBe ('b');
+  });
+
+  it ('should zip 2 linked lists into one if the first is longer than the second',()=>{
+
+    //arrange
+    let list1 = new LinkedList ();
+    let list2 = new LinkedList ();
+    list1.insert (1);
+    list1.insert (2);
+    list1.insert (3);
+
+    // head -> 3 ->  2 -> 1 -> null
+    list2.insert ('a');
+    list2.insert ('b');
+    // head -> b -> a -> null
+    // head -> 3 -> b -> 2 -> a -> 1 -> null
+    //act
+    let result = zipLists (list1 , list2);
+    //assert
+    expect (result.head.value).toBe (3);
+    expect (result.head.next.value).toBe ('b');
+    expect (result.head.next.next.value).toBe (2);
+    expect (result.head.next.next.next.value).toBe ('a');
+  });
+});

@@ -1,5 +1,5 @@
 # Singly Linked Lists
-a function that creates a new linked list and adds nodes in to it's head , checks if a certain value exists in the list and returns a string representing the value of all nodes in the linked list , adds a node to the end of the list , adds nodes before a certain value provided or after a certain value, finds a value of a backwards index.
+a function that creates a new linked list and adds nodes in to it's head , checks if a certain value exists in the list and returns a string representing the value of all nodes in the linked list , adds a node to the end of the list , adds nodes before a certain value provided or after a certain value, finds a value of a backwards index and zip 2 linked list together and alternate their values .
 
 ## Whiteboard Process
 ### code challenge 05 : 
@@ -11,7 +11,9 @@ for more clear image see it more clear [click here](https://app.diagrams.net/#G1
 ### code challenge 07 :
 ![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc7.jpg?raw=true)
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
-
+### code challenge 08 :
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc8.png?raw=true)
+for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
 
 ## Challenge
 * Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
@@ -25,6 +27,7 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
     * insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
     * insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
 * Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+* Write a function called zipLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
 ## Approach & Efficiency
 
 ### insert (value) :
@@ -95,6 +98,18 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
 * time  :O( n )
 * space :O ( 1 )
 ***
+### zipLists (list1 , list2) :
+1. create a new linked list .
+2. define the current for the first linked list.
+3. define the current for the second linked list.
+4. while current1 or current2 are not null :
+5. if the current for the first is not null : append it to new linked list and move to the next node 
+6. if the current for the second is not null : append it to new linked list and move to the next node 
+7. when done with both , return the zipped list
+### big O
+* time  :O( n )
+* space :O ( 1 )
+***
 <br>
 
 ## API
@@ -104,4 +119,5 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
 * append: Takes in a value of any type and add it to the tail of the linked list.
 * insertBefore: takes in two values and add a new node before the other in the linked list.
 * insertAfter: takes in two values and add a new node after the other in the linked list.
-*  kthFromEnd: takes in an integer value and returns the value of the node that has this index backwards 
+* kthFromEnd: takes in an integer value and returns the value of the node that has this index backwards 
+* zipLists: takes in two linked lists and returns a linked list with both lists nodes alternating.
