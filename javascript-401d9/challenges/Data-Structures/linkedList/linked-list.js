@@ -103,21 +103,22 @@ class LinkedList {
     }
 
   }
-
-  append (value) {
-
+  append(value) {
     try {
-      let newNode = new Node (value);
-      let current = this.head;
-      while (current.next){
-        current=current.next;
+      let node = new Node(value);
+      if (!this.head) {
+        this.head = node;
+        this.size++;
+      } else {
+        let current = this.head;
+        while (current.next) {
+          current = current.next;
+        }
+        current.next = node;
+        this.size++;
       }
-      newNode.next = current.next;
-      current.next = newNode;
-      this.length = this.length +1;
-
     } catch (error) {
-      console.error ('Error in implementing the append method =>' , error);
+      console.log(`Something went error`, error);
     }
 
   }
@@ -193,6 +194,7 @@ class LinkedList {
       throw new Error ('Error in implementing the kthFromEnd method', error);
     }
   }
+
 }
 
-module.exports = LinkedList;
+module.exports = LinkedList ;
