@@ -99,13 +99,16 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
 * space :O ( 1 )
 ***
 ### zipLists (list1 , list2) :
-1. create a new linked list .
-2. define the current for the first linked list.
-3. define the current for the second linked list.
-4. while current1 or current2 are not null :
-5. if the current for the first is not null : append it to new linked list and move to the next node 
-6. if the current for the second is not null : append it to new linked list and move to the next node 
-7. when done with both , return the zipped list
+1. define two pointers (current1 and current2) to point to both lists heads perspectively 
+2. define two variables (list1Length and list2Length) to hold the values of both linked lists values perspectively
+3. while current1 pointer doesn't point to null and current2.next does not point to null.
+4. insert the value of current1 after the value of current2
+5. move the pointer current1 to point to the next next node 
+6. move pointer current2 to point to the next node
+7. after breaking the while loop , compare the variables length1 and length2 
+8. if list1 is as long as list2 or is shorter than list 2 : append the value of current 2 to list 1
+9. if list1 is longer than list2 :   insert the value of the current2 to after the value of current1
+10. return list1
 ### big O
 * time  :O( n )
 * space :O ( 1 )
