@@ -3,7 +3,7 @@ a function that creates a new linked list and adds nodes in to it's head , check
 
 ## Whiteboard Process
 ### code challenge 10 : 
-![white board](./assets/cc10.png)
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc10.png?raw=true)
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1Bvlx6H18OBJsx9vjkUBtNLiHD74On-rW)
 
 
