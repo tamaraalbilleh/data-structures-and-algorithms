@@ -108,14 +108,14 @@ class LinkedList {
       let node = new Node(value);
       if (!this.head) {
         this.head = node;
-        this.size++;
+        this.length++;
       } else {
         let current = this.head;
         while (current.next) {
           current = current.next;
         }
         current.next = node;
-        this.size++;
+        this.length++;
       }
     } catch (error) {
       console.log(`Something went error`, error);
