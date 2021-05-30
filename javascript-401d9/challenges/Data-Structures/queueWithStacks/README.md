@@ -4,7 +4,7 @@ Create a brand new PseudoQueue class. Do not use an existing Queue. Instead, thi
 
 ## Whiteboard Process
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1AKmkNLNyTIcs_2mZyrZoiC6punxx3oe0)
-![white board]()
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc11.png?raw=true)
 
 ## Challenge
 ## Approach & Efficiency
