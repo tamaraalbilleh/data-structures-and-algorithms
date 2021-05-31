@@ -24,3 +24,4 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 | linked lists   | [Link](./javascript-401d9/challenges/Data-Structures/README.md)  |
 | Stacks and Queues | [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/stacksAndQueues%20/README.md) |
 | queue With Stacks | [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/queueWithStacks/README.md) |
+| fifo Animal Shelter | [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/fifoAnimalShelter/README.md) |
