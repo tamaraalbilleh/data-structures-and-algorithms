@@ -74,6 +74,27 @@ class BinaryTree {
       throw new Error ('this tree has no root node');
     }
   }
+  findMaximumValue (){
+    let result = this.root.value;
+    function traverse (node){
+      if (node.left){
+        traverse (node.left);
+      }
+      if (node.value > result){
+        result = node.value;
+      }
+      if (node.right){
+        traverse (node.right);
+      }
+    }
+    if (this.root){
+      traverse (this.root);
+      return result;
+    }else {
+      throw new Error('this tree has no root node');
+    }
+  }
+
 }
 
 class BinarySearchTree {
@@ -108,8 +129,6 @@ class BinarySearchTree {
     }
   }
 
-
-
   contains (value){
     let boolean = false;
     function traverse (node){
@@ -130,6 +149,7 @@ class BinarySearchTree {
       throw new Error ('this tree has no root node');
     }
   }
+
 }
 
 
