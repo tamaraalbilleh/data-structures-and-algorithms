@@ -220,3 +220,73 @@ describe ('Binary search Tree', ()=>{
     expect (tree.contains(5)).toBeFalsy;
   });
 });
+
+describe ('Binary Tree Max Value', ()=>{
+  let tree;
+  beforeAll (()=>{
+    // making the nodes and the tree //
+    tree = new BinaryTree;
+    let node1 = new Node (25);
+    let node2 = new Node (20);
+    let node3 = new Node (36);
+    let node4 = new Node (10);
+    let node5 = new Node (22);
+    let node6 = new Node (30);
+    let node17 = new Node (50);
+    let node7 = new Node (40);
+    let node8 = new Node (5);
+    let node9 = new Node (12);
+    let node10 = new Node (28);
+    let node11 = new Node (38);
+    let node12 = new Node (48);
+    let node13 = new Node (1);
+    let node14 = new Node (8);
+    let node15 = new Node (15);
+    let node16 = new Node (45);
+
+    // connecting it //
+    tree.root = node1;
+    node1.left = node2;
+    node1.right = node3;
+
+    node2.left = node4;
+    node2.right = node5;
+
+    node4.left =node8;
+    node4.right = node9;
+
+    node9.right = node15;
+
+    node8.left =node13;
+    node8.right = node14;
+
+    node3.left =node6;
+    node3.right = node7;
+
+    node6.left = node10;
+
+    node7.left =node11;
+    node7.right = node12;
+
+    node12.left = node16;
+    node12.right = node17;
+  });
+  it ('Happy Path : should return the maximum value in a binary tree' , ()=>{
+    expect (tree.findMaximumValue()).toBe(50);
+  });
+});
+
+describe ('expected failure : Binary Tree Max Value' ,()=>{
+  it ('should return an error',()=>{
+    let tree = new BinaryTree ();
+    expect (tree.findMaximumValue).toThrowError;
+  });
+});
+
+describe ('Edge cases : Binary Tree Max Value' , ()=>{
+  it ('should ' ,()=>{
+    let tree = new BinarySearchTree ();
+    expect (tree.findMaximumValue).toThrowError;
+  });
+});
+

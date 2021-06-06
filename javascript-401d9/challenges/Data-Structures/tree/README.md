@@ -6,10 +6,14 @@
 * Create a BinarySearchTree class
     * Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
     * Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+* Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
 
-## Whiteboard Process
+## Whiteboard Process : 15
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1X-5Fw5LqzcKpxkvIm1XFUCkP5p5NXK54)
 ![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc15.png?raw=true)
+## Whiteboard Process : 16
+for more clear image see it more clear [click here](https://app.diagrams.net/#G1X-5Fw5LqzcKpxkvIm1XFUCkP5p5NXK54)
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc16.png?raw=true)
 
 ## Challenge
 ## Approach & Efficiency
@@ -49,6 +53,18 @@ for more clear image see it more clear [click here](https://app.diagrams.net/#G1
 * time  :O ( n )
 * space :O ( n )
 ***
+###  findMaximumValue():
+1. define a pointer to the root value
+2. define a recursive function to traverse through the tree and call it on the root node
+3. check if the node has a left child node : if it does traverse with the function on the left node 
+4. check if the node has a right child node : if it does , traverse with the function on the right node 
+5. check the value of the node if the pointer value is larger update the pointer value to be the value of the current node we are in
+6. if the tree has no root node throw an error of a missing root .
+7. return the the pointer that hold the largest value available.
+### big O
+* time  :O ( n )
+* space :O ( h )
+
 <br>
 
 ###  add(value):
@@ -84,3 +100,4 @@ for more clear image see it more clear [click here](https://app.diagrams.net/#G1
 - postOrder : left >> right >> root : traverses over a binary tree and returns an array indicating the order of which the nodes were traversed on from left to right to root
 - add : takes in numeric value and finds a place in the binary search tree to insert it in 
 - contains : takes in a numeric value and returns a boolean indicating if the value exists or not 
+- findMaximumValue : traverses through the tree and finds the largest value of the available node values and returns the maximum value .
