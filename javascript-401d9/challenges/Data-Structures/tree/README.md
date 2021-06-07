@@ -8,12 +8,17 @@
     * Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
 * Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
 
+* Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
 ## Whiteboard Process : 15
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1X-5Fw5LqzcKpxkvIm1XFUCkP5p5NXK54)
 ![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc15.png?raw=true)
 ## Whiteboard Process : 16
 for more clear image see it more clear [click here](https://app.diagrams.net/#G1X-5Fw5LqzcKpxkvIm1XFUCkP5p5NXK54)
 ![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc16.png?raw=true)
+## Whiteboard Process : 17
+for more clear image see it more clear [click here](https://app.diagrams.net/#G1M51oTces-oc8-HFUCD46zpzw63yZ3l9k)
+![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc17.png?raw=true)
+
 
 ## Challenge
 ## Approach & Efficiency
@@ -64,6 +69,23 @@ for more clear image see it more clear [click here](https://app.diagrams.net/#G1
 ### big O
 * time  :O ( n )
 * space :O ( h )
+*** 
+
+###  breadthFirst():
+1. check if the tree is empty or not and throw an error if it was.
+2. define an empty array to have the resulted order in it 
+3. make a new empty queue data structure
+4. first enqueue the root of the tree to the empty queue
+5. then traverse over the tree while the queue have a front node in it : 
+6. while traversing : dequeue the front node and send its value to the array
+7. check if this node have a left node in the tree and enqueue it's left node to the queue
+8. check if this node have a right node in the tree and enqueue it's right node queue
+9. while enqueueing and dequeueing the front node will be left node then it will be the right on the same level and it will go on like this until there is no node left in the queue.
+10. return the array with the final result.
+### big O
+* time  :O ( n )
+* space :O ( h )
+***
 
 <br>
 
@@ -101,3 +123,4 @@ for more clear image see it more clear [click here](https://app.diagrams.net/#G1
 - add : takes in numeric value and finds a place in the binary search tree to insert it in 
 - contains : takes in a numeric value and returns a boolean indicating if the value exists or not 
 - findMaximumValue : traverses through the tree and finds the largest value of the available node values and returns the maximum value .
+- breadthFirst : traverses over a binary tree and returns the values of the nodes in a breadth first order.

@@ -290,3 +290,57 @@ describe ('Edge cases : Binary Tree Max Value' , ()=>{
   });
 });
 
+describe ('Binary Trees breadth first' , ()=>{
+  let tree;
+  beforeAll (()=>{
+    // making the nodes and the tree //
+    tree = new BinaryTree;
+    let node1 = new Node (2);
+    let node2 = new Node (7);
+    let node3 = new Node (5);
+    let node4 = new Node (2);
+    let node5 = new Node (6);
+    let node6 = new Node (9);
+    let node7 = new Node (5);
+    let node8 = new Node (11);
+    let node9 = new Node (4);
+
+
+    // connecting it //
+    tree.root= node1;
+    node1.left= node2;
+    node1.right= node3;
+
+    node2.left = node4;
+    node2.right = node5;
+
+    node5.left = node7;
+    node5.right =node8;
+
+    node3.right = node6;
+
+    node6.left = node9;
+
+  });
+
+  // root >> left >> right
+  // preOrder
+  it ('should return the breadth first of a binary tree' , ()=>{
+    // arrange
+    let expected = [2,7,5,2,6,9,5,11,4];
+    // act
+    let breadthFirstResult = tree.breadthFirst();
+    // assert
+    expect (breadthFirstResult).toEqual (expected);
+  });
+  it ('Edge cases : should throw an error when applied on an empty tree', ()=>{
+    let empty = new BinaryTree ();
+    expect (empty.breadthFirst).toThrowError;
+  });
+  it ('Expected Failure : should throw an error when applied on a non binary tree data structure', ()=>{
+    let empty = new BinarySearchTree();
+    expect (empty.breadthFirst).toThrowError;
+  });
+});
+
+
