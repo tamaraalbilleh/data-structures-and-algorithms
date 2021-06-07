@@ -1,5 +1,6 @@
 'use strict';
 
+const Queue = require ('../stacksAndQueues /stacks-and-queues.js').Queue;
 /// node class ///
 class Node {
   constructor (value ){
@@ -93,6 +94,29 @@ class BinaryTree {
     }else {
       throw new Error('this tree has no root node');
     }
+  }
+
+  breadthFirst() {
+    if (!this.root){
+      throw new Error('this tree has no root node');
+    }
+    let result = [];
+    let queue = new Queue ();
+    queue.enqueue (this.root);
+
+    while (queue.front){
+      let current = queue.dequeue ();
+      result.push(current.value);
+      if (current.left){
+        queue.enqueue (current.left);
+      }
+      if (current.right){
+        queue.enqueue (current.right);
+      }
+
+    }
+    return result;
+
   }
 
 }
