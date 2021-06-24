@@ -76,4 +76,4 @@ Returns: Index in the collection for that key
 
 ![white board](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/assets/cc23.png?raw=true)
 
-for more clear image see it more clear [click here](https://app.diagrams.net/#G1rxloby7oJBVvXKpCinqj0bd7bUrqTpIb)
+for more clear image see it more clear [click here](https://app.diagrams.net/#G1cMXktAvKN5C2-usVAvp3VoY_ZxFUA3WH)
