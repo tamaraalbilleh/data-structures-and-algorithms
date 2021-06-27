@@ -23,7 +23,7 @@ class LinkedList {
       if (!this.head){
         this.head = newNodePointer;
       }else {
-        newNodePointer.next = this.head; // get the new pointer and make it th head pointer;
+        newNodePointer.next = this.head; // get the new pointer and make it the head pointer;
         this.head = newNodePointer; // take the head and make it the next pointer
         this.length = this.length +1;
       }
