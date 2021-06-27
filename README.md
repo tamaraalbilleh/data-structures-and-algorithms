@@ -29,3 +29,6 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 | fizzBuzzTree | [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/fizzBuzzTree/README.md)|
 | Insertion Sort  |[Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/insersionSort/README.md)|
 | Merge Sort| [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/merge-sort/README.md)|
+| Quick Sort| [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/quicksort/README.md)|
+| Hash Table | [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/hashtable/README.md)|
+| Repeated Word| [Link](https://github.com/tamaraalbilleh/data-structures-and-algorithms/blob/main/javascript-401d9/challenges/Data-Structures/repeatedWord/README.md)|
