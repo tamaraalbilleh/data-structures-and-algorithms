@@ -82,7 +82,7 @@ describe('Tree intersection', () => {
     tree5.root = ntest;
 
 
-    expect (treeIntersection ( tree1 , tree2)).toEqual ([100,160,125,175,600,200,350,500]);
+    expect (treeIntersection ( tree1 , tree2)).toEqual ([100,160,125,175,200,350,500]);
     expect (treeIntersection ()).toEqual ('please enter trees');
     expect (treeIntersection (tree3,tree4)).toEqual ('please enter non empty trees');
     expect (treeIntersection (tree1,tree5)).toEqual ([]);

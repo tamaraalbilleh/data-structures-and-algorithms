@@ -52,7 +52,7 @@ describe('Hash Tables', () => {
   it ('should hash a key to an in-range value' , ()=>{
     let myHash = new HashTable (1021);
     let hashed = myHash.hash ('key');
-    expect (hashed).toBeLessThanOrEqual (599 % myHash.size);
+    expect (hashed).toBeLessThanOrEqual (1004);
   });
 
 });
