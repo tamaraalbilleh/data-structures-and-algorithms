@@ -10,7 +10,7 @@ class HashTable {
   hash (key){
     let sum = 0;
     sum = key.split('').reduce((result, n) => {
-      return result * n.charCodeAt(0);
+      return result + n.charCodeAt(0);
     }, 1) * 599 % this.table.length;
     return sum;
   }
